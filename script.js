@@ -21,3 +21,8 @@ function getHumanChoice() {
     let choice = prompt("Enter scissors, paper or stone!");
     return choice;
 }
+
+function main() {
+    let humanScore = 0;
+    let computerScore = 0;
+}
