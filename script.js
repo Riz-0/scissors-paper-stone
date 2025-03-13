@@ -55,7 +55,7 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-function main() {
+function playGame() {
     let humanScore = 0;
     let computerScore = 0;
     let winner = playRound();
