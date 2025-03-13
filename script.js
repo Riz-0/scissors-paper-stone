@@ -14,7 +14,10 @@ function getComputerChoice() {
         choice = "stone";
     }
 
-    console.log(choice);
+    return choice;
 }
 
-getComputerChoice();
+function getHumanChoice() {
+    let choice = prompt("Enter scissors, paper or stone!");
+    return choice;
+}
