@@ -58,11 +58,24 @@ function playRound (humanChoice, computerChoice) {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    let winner = playRound();
+    let winner;
 
-    if (winner == "human") {
-        humanScore += 1;
-    } else if (winner == "computer") {
-        computerScore += 1;
+    while (humanScore < 5 && computerScore < 5) {
+        winner = playRound(getHumanChoice(), getComputerChoice());
+        if (winner == "human") {
+            humanScore += 1;
+        } else if (winner == "computer") {
+            computerScore += 1;
+        }
+        console.log("You: " + humanScore + " Computer: " + computerScore);
     }
+
+    if (humanScore > computerScore) {
+        console.log("You beat the computer!");
+    } else {
+        console.log("Aw you lost! Refresh to try again!")
+    }
+    console.log("You: " + humanScore + " Computer: " + computerScore);
 }
+
+playGame();
