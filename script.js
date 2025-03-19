@@ -34,22 +34,18 @@ function playGame() {
   let computerScore = 0;
   let winner;
 
+  //   Main game loop
   while (humanScore < 5 && computerScore < 5) {
     winner = playRound(getHumanChoice(), getComputerChoice());
-    if (winner == "human") {
-      humanScore += 1;
-    } else if (winner == "computer") {
-      computerScore += 1;
-    }
+    if (winner == "human") humanScore += 1;
+    else if (winner == "computer") computerScore += 1;
+    else if ((winner = "tie")) console.log("It's a tie!");
     console.log("You: " + humanScore + " Computer: " + computerScore);
   }
 
-  if (humanScore > computerScore) {
-    console.log("You beat the computer!");
-  } else {
-    console.log("Aw you lost! Refresh to try again!");
-  }
-  console.log("You: " + humanScore + " Computer: " + computerScore);
+  if (humanScore > computerScore)
+    console.log(`You beat the computer! ${humanScore}:${computerScore}`);
+  else console.log(`You lost! ${computerScore}:${humanScore}`);
 }
 
 playGame();
