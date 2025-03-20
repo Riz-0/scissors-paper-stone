@@ -21,28 +21,36 @@ function playRound(humanChoice) {
     case humanChoice == "scissors" && computerChoice == "paper":
     case humanChoice == "paper" && computerChoice == "stone":
     case humanChoice == "stone" && computerChoice == "scissors":
-      update("human");
+      update("human", computerChoice);
       break;
     case computerChoice == "scissors" && humanChoice == "paper":
     case computerChoice == "paper" && humanChoice == "stone":
     case computerChoice == "stone" && humanChoice == "scissors":
-      update("computer");
+      update("computer", computerChoice);
       break;
     default:
       console.log("ERROR: No winner");
   }
 }
 
-function update(winner) {
+function update(winner, computerChoice) {
   const scoreboard = document.querySelector(".score");
   const round = document.querySelector("#round");
+  const header = document.querySelector("h3");
 
   let human = Number(scoreboard.textContent[0]);
   let cpu = Number(scoreboard.textContent[4]);
   let curRound = Number(round.textContent.slice(5));
 
-  if (winner == "human") human += 1;
-  if (winner == "computer") cpu += 1;
+  if (winner == "human") {
+    header.textContent = `You win! Computer chose ${computerChoice}!`;
+    human += 1;
+  } else if (winner == "computer") {
+    header.textContent = `You lose! Computer chose ${computerChoice}!`;
+    cpu += 1;
+  } else {
+    header.textContent = "It's a tie!";
+  }
 
   scoreboard.textContent = `${human} : ${cpu}`;
   round.textContent = `Round ${(curRound += 1)}`;
