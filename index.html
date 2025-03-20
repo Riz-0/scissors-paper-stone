@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -21,9 +22,15 @@
           <h3>Choose an option</h3>
         </div>
         <div class="buttons">
-          <button><img src="images/stone.svg" alt="stone icon" /></button>
-          <button><img src="images/paper.svg" alt="paper icon" /></button>
-          <button><img src="images/scissors.svg" alt="scissors icon" /></button>
+          <button id="stone">
+            <img src="images/stone.svg" alt="stone icon" />
+          </button>
+          <button id="paper">
+            <img src="images/paper.svg" alt="paper icon" />
+          </button>
+          <button id="scissors">
+            <img src="images/scissors.svg" alt="scissors icon" />
+          </button>
         </div>
         <div class="scoreboard">
           <h2>You</h2>
@@ -32,6 +39,5 @@
         </div>
       </section>
     </div>
-    <script src="script.js"></script>
   </body>
 </html>
