@@ -1,0 +1,87 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Font */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: #595959;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: black;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Game Section */
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.buttons img {
+  width: 200px;
+}
+
+.buttons {
+  display: flex;
+  gap: 100px;
+}
+
+button {
+  border: none;
+  background: none;
+  border-radius: 50%;
+  box-shadow: 0px 0px 25px #595959;
+}
+
+button:hover {
+  transform: scale(1.15);
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.score {
+  font-size: 60px;
+  font-weight: 700;
+}

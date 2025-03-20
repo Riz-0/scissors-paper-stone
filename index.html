@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scissors, Paper, Stone!</title>
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main Game -->
+      <section class="game">
+        <div class="header">
+          <h1 id="round">Round 1</h1>
+          <h3>Choose an option</h3>
+        </div>
+        <div class="buttons">
+          <button><img src="images/stone.svg" alt="stone icon" /></button>
+          <button><img src="images/paper.svg" alt="paper icon" /></button>
+          <button><img src="images/scissors.svg" alt="scissors icon" /></button>
+        </div>
+        <div class="scoreboard">
+          <h2>You</h2>
+          <p class="score">0 : 0</p>
+          <h2>CPU</h2>
+        </div>
+      </section>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
