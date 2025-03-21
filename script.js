@@ -52,8 +52,25 @@ function update(winner, computerChoice) {
     header.textContent = "It's a tie!";
   }
 
-  scoreboard.textContent = `${human} : ${cpu}`;
-  round.textContent = `Round ${(curRound += 1)}`;
+  if (human == 5 || cpu == 5) showGameOver(human, cpu);
+  else {
+    scoreboard.textContent = `${human} : ${cpu}`;
+    round.textContent = `Round ${(curRound += 1)}`;
+  }
+}
+
+function showGameOver(human, cpu) {
+  const game = document.querySelector(".game");
+  game.querySelector("h1").textContent = "Game Over!";
+  if (human < cpu) game.querySelector("h3").textContent = "You Lost! :(";
+  if (cpu < human) game.querySelector("h3").textContent = "You Win! :)";
+
+  const buttons = document.querySelector(".buttons").remove();
+  const scoreboard = document.querySelector(".scoreboard").remove();
+  const playBtn = document.createElement("button");
+  playBtn.textContent = "Play Again";
+  playBtn.style.cssText = "border-radius: 10px; padding: 20px 40px;";
+  game.appendChild(playBtn);
 }
 
 function playGame() {
