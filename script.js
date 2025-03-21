@@ -52,8 +52,10 @@ function update(winner, computerChoice) {
     header.textContent = "It's a tie!";
   }
 
-  if (human == 5 || cpu == 5) showGameOver(human, cpu);
-  else {
+  if (human == 5 || cpu == 5) {
+    showGameOver(human, cpu);
+    scoreboard.textContent = "0 : 0";
+  } else {
     scoreboard.textContent = `${human} : ${cpu}`;
     round.textContent = `Round ${(curRound += 1)}`;
   }
@@ -65,12 +67,21 @@ function showGameOver(human, cpu) {
   if (human < cpu) game.querySelector("h3").textContent = "You Lost! :(";
   if (cpu < human) game.querySelector("h3").textContent = "You Win! :)";
 
-  const buttons = document.querySelector(".buttons").remove();
-  const scoreboard = document.querySelector(".scoreboard").remove();
+  // Remove elements but store them in memory
+  const buttons = game.removeChild(document.querySelector(".buttons"));
+  const scoreboard = game.removeChild(document.querySelector(".scoreboard"));
+
   const playBtn = document.createElement("button");
+  playBtn.classList.add("playBtn");
   playBtn.textContent = "Play Again";
   playBtn.style.cssText = "border-radius: 10px; padding: 20px 40px;";
+  playBtn.addEventListener("click", refresh);
+
   game.appendChild(playBtn);
+}
+
+function refresh() {
+  window.location.reload();
 }
 
 function playGame() {
@@ -78,22 +89,6 @@ function playGame() {
   for (button of buttons) {
     button.addEventListener("click", (e) => playRound(e.currentTarget.id));
   }
-
-  let humanScore = 0;
-  let computerScore = 0;
-  let winner;
-
-  //   Main game loop
-  // while (humanScore < 5 && computerScore < 5) {
-  //   if (winner == "human") humanScore += 1;
-  //   else if (winner == "computer") computerScore += 1;
-  //   else if ((winner = "tie")) console.log("It's a tie!");
-  //   console.log("You: " + humanScore + " Computer: " + computerScore);
-  // }
-
-  if (humanScore > computerScore)
-    console.log(`You beat the computer! ${humanScore}:${computerScore}`);
-  else console.log(`You lost! ${computerScore}:${humanScore}`);
 }
 
 playGame();
